@@ -1,6 +1,12 @@
-# Typescript::Amd::Rails
+# Typescript-AMD
 
-TODO: Write a gem description
+While there are some existing efforts to bring typescript to the asset
+pipeline (and ruby), I didn't find them acceptable for the following
+reasons:
+
+ - Typescript compilation through tsc is crazy slow (2s for a single
+   trivial file on my machine). This is because they are massively
+optimizing for interactive compilation
 
 ## Installation
 

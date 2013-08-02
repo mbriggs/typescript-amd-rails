@@ -12,7 +12,11 @@ module TypeScript::Compile
     file.write(source)
     file.close
 
+    beginning_time = Time.now
     result = compile_file(file.path)
+    end_time = Time.now
+    Rails.logger.warn "!!!!!!!!!!-> Compile time #{(end_time - beginning_time)*1000} milliseconds"
+
 
     unless result.success?
       Rails.logger.warn(result.stderr)

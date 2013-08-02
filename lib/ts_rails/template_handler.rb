@@ -8,8 +8,15 @@ module TypeScript
     end
 
     def evaluate(scope, locals, &block)
-      path = template.identifier.gsub(/['\\]/, '\\\\\&')
+      beginning_time = Time.now
+      path = file.gsub(/['\\]/, '\\\\\&')
+      Rails.logger.warn("HIHI")
+
       @output ||= TypeScript::Compile.compile(TypeScript.inject_references(data), path)
+      end_time = Time.now
+      Rails.logger.warn "!!!!!!!!!!-> Total time elapsed #{(end_time - beginning_time)*1000} milliseconds"
+
+      @output
     end
   end
 
